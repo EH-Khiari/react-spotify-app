@@ -7,7 +7,7 @@ A simple spotify app written in React, used to search for artists and browse thr
 
 The app is set to run in development mode. 
 1. Clone/download the master branch of the repository locally and extract the contents of the compressed file.
-2. Using your command line/prompt, `cd` to the extract folder
+2. Using your command line/prompt, `cd` to the extracted folder
 3. Install node by running `npm i`
 4. Run the application by running `npm start`. The application will launch on [http://localhost:3000](http://localhost:3000). 
 
