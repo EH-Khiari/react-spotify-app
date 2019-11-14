@@ -7,7 +7,7 @@ class Result extends Component {
   }
 
   render() {
-    const { artist, onClick, album, onPreviewClick } = this.props;
+    const { artist, onClick, album } = this.props;
     let isArtist = true;
     let id = null;
 
@@ -18,23 +18,20 @@ class Result extends Component {
       isArtist = false;
     }
 
-    //const classname = "result-box border-2 border-dark";
     const classname = "col col-md-2 m-20";
     if (isArtist) {
       return (
         <div className={classname} onClick={() => onClick(id)}>
-          {this.renderResultBox(artist, album, onPreviewClick)}
+          {this.renderResultBox(artist, album)}
         </div>
       );
     }
     return (
-      <div className={classname}>
-        {this.renderResultBox(artist, album, onPreviewClick)}
-      </div>
+      <div className={classname}>{this.renderResultBox(artist, album)}</div>
     );
   }
 
-  renderResultBox(artist, album, onPreviewClick) {
+  renderResultBox(artist, album) {
     let name,
       artist_names,
       images,
@@ -44,6 +41,7 @@ class Result extends Component {
       spotify_external_url = null;
     let followers = 0;
     let rating = 0;
+    let classname = "";
 
     if (artist != null) {
       name = artist.name;
@@ -51,6 +49,7 @@ class Result extends Component {
       followers = artist.followers.total;
       popularity = artist.popularity;
       rating = Math.round(popularity / 20.0);
+      classname = "result-box-artist border-2 border-dark";
     } else {
       name = album.name;
       images = album.images;
@@ -58,13 +57,14 @@ class Result extends Component {
       release_date = album.release_date;
       total_tracks = album.total_tracks;
       spotify_external_url = album.external_urls.spotify;
+      classname = "result-box-album border-2 border-dark";
     }
     if (name.length > 35) {
       name = name.substring(0, 35) + "...";
     }
 
     return (
-      <div className="result-box border-2 border-dark">
+      <div className={classname}>
         <div className="image-box border-bottom-2 border-dark">
           {this.renderImage(images)}
         </div>
@@ -82,7 +82,7 @@ class Result extends Component {
           </div>
           {this.renderFourthRow(total_tracks)}
         </div>
-        {this.renderSpotifyLink(spotify_external_url, onPreviewClick)}
+        {this.renderSpotifyLink(spotify_external_url)}
       </div>
     );
   }
@@ -134,16 +134,8 @@ class Result extends Component {
     return null;
   }
 
-  renderSpotifyLink(spotify_external_url, onPreviewClick) {
+  renderSpotifyLink(spotify_external_url) {
     if (spotify_external_url !== null) {
-      /*return (
-        <div
-          className="preview center-text border-2 m-l-n-1"
-          onClick={() => onPreviewClick(spotify_external_url)}
-        >
-          Preview on Spotify
-        </div>
-      );*/
       return (
         <a className="preview center-text" href={spotify_external_url}>
           Preview on Spotify

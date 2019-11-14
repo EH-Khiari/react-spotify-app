@@ -39,10 +39,15 @@ body {
   display: inline;
 }
 
-.result-box {
+.result-box-artist {
   width: 100%;
   height: 100%;
   cursor: pointer;
+}
+
+.result-box-album {
+  width: 100%;
+  height: 100%;
 }
 
 .image-box {

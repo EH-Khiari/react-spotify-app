@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import queryString from "querystring";
 import Result from "./result";
+import config from "../config.json";
 
-const token =
-  "BQAagahVVoLLfrqK0_8d3Dg3gZDeDZEJUOk0WUIsbDlblOPT-ie9VaUtv8JCz1Jd1ska2zmyxN5WqR_2CfHjrXzjzaKKTLGuqPG_mwUv4GbiyggFtLxWZR7jKdfVZPYgO2udgFFutGaMJYOEShBs0nAH6-dBQfc_-pc6";
 class ArtistsResults extends Component {
   state = {
     artists: []
@@ -38,6 +37,7 @@ class ArtistsResults extends Component {
       query.market = "US";
       const endpoint = decodeURIComponent(queryString.stringify(query));
 
+      const token = config.token;
       const options = {
         headers: {
           Accept: "application/json",

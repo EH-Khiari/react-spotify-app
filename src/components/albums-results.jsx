@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import queryString from "querystring";
 import Result from "./result";
+import config from "../config.json";
 
-const token =
-  "BQAagahVVoLLfrqK0_8d3Dg3gZDeDZEJUOk0WUIsbDlblOPT-ie9VaUtv8JCz1Jd1ska2zmyxN5WqR_2CfHjrXzjzaKKTLGuqPG_mwUv4GbiyggFtLxWZR7jKdfVZPYgO2udgFFutGaMJYOEShBs0nAH6-dBQfc_-pc6";
 class AlbumsResults extends Component {
   state = {
     albums: []
@@ -36,6 +35,8 @@ class AlbumsResults extends Component {
       const query = queryString.parse(artistEndPoint);
       query.market = "US";
       const endpoint = decodeURIComponent(queryString.stringify(query));
+
+      const token = config.token;
       const options = {
         headers: {
           Accept: "application/json",
@@ -49,15 +50,10 @@ class AlbumsResults extends Component {
   }
 
   render() {
-    const { onPreviewClick } = this.props;
     return (
       <div className="row">
         {this.state.albums.map(album => (
-          <Result
-            key={album.id}
-            album={album}
-            onPreviewClick={onPreviewClick}
-          />
+          <Result key={album.id} album={album} />
         ))}
       </div>
     );
