@@ -48,7 +48,8 @@ class ArtistsResults extends Component {
 
       const { data } = await axios.get(endpoint, options);
       this.setState({ artists: data.artists });
-      console.log(this.state.artists);
+    } else {
+      this.setState({ artists: undefined });
     }
   }
 
@@ -62,11 +63,20 @@ class ArtistsResults extends Component {
   }
 
   renderArtists(artists, onClick) {
-    if (artists !== undefined && artists.items !== undefined) {
+    if (
+      artists !== undefined &&
+      artists.items !== undefined &&
+      artists.items.length > 0
+    ) {
       return artists.items.map(artist => (
         <Result key={artist.id} artist={artist} onClick={onClick} />
       ));
     }
+    return (
+      <div className="col col-4">
+        <h5>No results found</h5>
+      </div>
+    );
   }
 }
 

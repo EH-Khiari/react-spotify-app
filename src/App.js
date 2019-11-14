@@ -5,13 +5,14 @@ import { Switch, Route } from "react-router-dom";
 import NavBar from "./components/navbar";
 import LoginPage from "./components/login-page";
 import SearchPage from "./components/search-page";
+import config from "./config.json";
 
-const authEndPoint = "https://accounts.spotify.com/authorize?";
 class App extends Component {
   onLogin = props => {
-    const client_id = "7bf1ec8d3e234bec9de46297c236fb76";
+    const authEndPoint = "https://accounts.spotify.com/authorize?";
+    const client_id = config.client_id;
     const response_type = "token";
-    const redirect_uri = "http://localhost:3000/search";
+    const redirect_uri = config.redirect_uri;
 
     const query = queryString.parse(authEndPoint);
     query.client_id = client_id;
