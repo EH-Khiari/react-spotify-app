@@ -1,0 +1,111 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-button {
+  height: 20%;
+  width: 50%;
+}
+
+.search-area {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.results-area {
+  width: 100%;
+  height: 100%;
+}
+
+.search-box {
+  background: url(C:\Users\ElHebri\Desktop\React-Tutorial\spotify-app\src\images\search-icon.png)
+    no-repeat scroll 95%;
+}
+
+.search-button {
+  display: inline;
+}
+
+.result-box {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.image-box {
+  width: 100%;
+  height: 60%;
+}
+
+.info-box {
+  width: 100%;
+  height: 40%;
+  position: relative;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+}
+
+.third-row {
+  position: absolute;
+  top: 75%;
+  height: 10%;
+}
+
+.fourth-row {
+  position: absolute;
+  top: 85%;
+  height: 15%;
+}
+
+.preview {
+  width: 102%;
+  border: solid 2px black;
+  display: block;
+  margin-left: -2px;
+}
+
+.preview:hover {
+  background-color: lavender;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.border-2 {
+  border: solid 2px black;
+}
+
+.border-bottom-2 {
+  border-bottom: solid 2px;
+}
+
+.m-20 {
+  margin: 20px;
+}
+
+.m-l-n-1 {
+  margin-left: -2px;
+}
