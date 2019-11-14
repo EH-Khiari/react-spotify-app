@@ -31,8 +31,7 @@ body {
 }
 
 .search-box {
-  background: url(C:\Users\ElHebri\Desktop\React-Tutorial\spotify-app\src\images\search-icon.png)
-    no-repeat scroll 95%;
+  background: url(..\images\search-icon.png) no-repeat scroll 95%;
 }
 
 .search-button {
